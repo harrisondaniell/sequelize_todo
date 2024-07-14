@@ -1,18 +1,20 @@
+## Introdução
+
+```
+Todo-list simples para testes no sequelize.
+```
+
 ## Instalação
 
-Você pode clonar o repositório e rodar:
+Após clonar o repositório é necessário remover o .example do arquivo .env
+
+Altere as variáveis de ambiente.
+
+Instale as dependências:
 
 ```bash
 npm install
 ```
-
-Depois clonar o arquivo `.env.example` para `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-E alterar as variáveis de ambiente.
 
 ## Uso
 
