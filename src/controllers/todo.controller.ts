@@ -50,4 +50,13 @@ export const update = async (req: Request, res: Response) => {
   return res.json({ error: "Item não encontrado" });
 };
 
-export const remove = async (req: Response, res: Response) => {};
+export const remove = async (req: Request, res: Response) => {
+  const id: string = req.params.id;
+  let todo = await Todo.findByPk(id);
+  if (todo) {
+    await todo.destroy();
+    return res.json({ message: "Item excluído" });
+  }
+
+  res.json({ error: "Item não encontrado" });
+};
