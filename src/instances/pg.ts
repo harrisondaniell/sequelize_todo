@@ -4,12 +4,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const sequelize = new Sequelize(
-  "node_todo_simples",
-  "postgres",
-  "1234",
+  process.env.PG_DB as string,
+  process.env.PG_USER as string,
+  process.env.PG_PASSWORD as string,
   {
     dialect: "postgres",
-    host: "localhost",
+    host: process.env.PG_HOST,
   }
 );
 
