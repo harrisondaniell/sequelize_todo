@@ -9,7 +9,17 @@ export const all = async (req: Request, res: Response) => {
   });
 };
 
-export const add = async () => {};
+export const add = async (req: Request, res: Response) => {
+  if (req.body.title) {
+    let newTodo = await Todo.create({
+      title: req.body.title,
+      done: req.body.done ? true : false,
+    });
+    return res.status(201).json({ item: newTodo });
+  }
+
+  return res.json({ erro: "Dados não enviados" });
+};
 
 export const update = async () => {};
 
