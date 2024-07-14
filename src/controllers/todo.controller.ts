@@ -9,6 +9,17 @@ export const all = async (req: Request, res: Response) => {
   });
 };
 
+export const getId = async (req: Request, res: Response) => {
+  const id: string = req.params.id;
+  let todo = await Todo.findByPk(id);
+
+  if (todo) {
+    return res.json({ todo });
+  }
+
+  return res.json({ error: "Item não encontrado" });
+};
+
 export const add = async (req: Request, res: Response) => {
   if (req.body.title) {
     let newTodo = await Todo.create({
